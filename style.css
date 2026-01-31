@@ -1,11 +1,45 @@
+:root {
+    --bg-color: #f0f0f0;
+    --text-color: #333;
+    --ball-bg-color: #eee;
+    --ball-shadow-color: rgba(0, 0, 0, 0.2);
+    --btn-bg-gradient: linear-gradient(145deg, #FF6B6B, #FFC371);
+    --btn-text-color: #fff;
+    --btn-shadow-color: rgba(0, 0, 0, 0.2);
+}
+
+body.dark-mode {
+    --bg-color: #2c2c2c;
+    --text-color: #f0f0f0;
+    --ball-bg-color: #444;
+    --ball-shadow-color: rgba(0, 0, 0, 0.4);
+    --btn-bg-gradient: linear-gradient(145deg, #4b4b4b, #2c2c2c);
+    --btn-text-color: #f0f0f0;
+    --btn-shadow-color: rgba(0, 0, 0, 0.4);
+}
+
 body {
     font-family: sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #f0f0f0;
+    background: var(--bg-color);
+    color: var(--text-color);
     margin: 0;
+    transition: background 0.3s, color 0.3s;
+}
+
+.theme-switcher {
+    position: fixed;
+    top: 20px;
+    right: 20px;
+    cursor: pointer;
+    z-index: 100;
+}
+
+.theme-switcher svg {
+    stroke: var(--text-color);
 }
 
 .container {
@@ -13,7 +47,7 @@ body {
 }
 
 h1 {
-    color: #333;
+    color: var(--text-color);
     margin-bottom: 40px;
 }
 
@@ -25,7 +59,7 @@ h1 {
 }
 
 lotto-ball {
-    --ball-color: #eee;
+    --ball-color: var(--ball-bg-color);
     width: 80px;
     height: 80px;
     border-radius: 50%;
@@ -35,19 +69,19 @@ lotto-ball {
     font-size: 2em;
     font-weight: bold;
     background: radial-gradient(circle at 30% 30%, #fff, var(--ball-color));
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2), inset 0 -2px 5px rgba(0,0,0,0.2);
-    color: #333;
+    box-shadow: 0 5px 15px var(--ball-shadow-color), inset 0 -2px 5px var(--ball-shadow-color);
+    color: var(--text-color);
 }
 
 #generator-btn {
     padding: 15px 30px;
     font-size: 1.2em;
-    color: #fff;
-    background: linear-gradient(145deg, #FF6B6B, #FFC371);
+    color: var(--btn-text-color);
+    background: var(--btn-bg-gradient);
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px var(--btn-shadow-color);
     transition: transform 0.2s, box-shadow 0.2s;
 }
 
@@ -58,5 +92,5 @@ lotto-ball {
 
 #generator-btn:active {
     transform: translateY(0);
-    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 4px 15px var(--btn-shadow-color);
 }
