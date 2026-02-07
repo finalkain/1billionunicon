@@ -3,25 +3,58 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Lotto Number Generator</title>
+    <title>식단 관리 프로그램</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
     <div class="theme-switcher">
         <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-sun"><circle cx="12" cy="12" r="5"></circle><line x1="12" y1="1" x2="12" y2="3"></line><line x1="12" y1="21" x2="12" y2="23"></line><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"></line><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"></line><line x1="1" y1="12" x2="3" y2="12"></line><line x1="21" y1="12" x2="23" y2="12"></line><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"></line><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"></line></svg>
     </div>
-    <div class="container">
-        <h1>Lotto Number Generator</h1>
-        <div class="lotto-balls-container">
-            <lotto-ball></lotto-ball>
-            <lotto-ball></lotto-ball>
-            <lotto-ball></lotto-ball>
-            <lotto-ball></lotto-ball>
-            <lotto-ball></lotto-ball>
-            <lotto-ball></lotto-ball>
-        </div>
-        <button id="generator-btn">Generate Numbers</button>
+    <div class="settings-container">
+        <svg id="settings-btn" xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" class="feather feather-settings"><circle cx="12" cy="12" r="3"></circle><path d="M19.4 15a1.65 1.65 0 0 0 .33 1.82l.06.06a2 2 0 0 1 0 2.83 2 2 0 0 1-2.83 0l-.06-.06a1.65 1.65 0 0 0-1.82-.33 1.65 1.65 0 0 0-1 1.51V21a2 2 0 0 1-2 2 2 2 0 0 1-2-2v-.09A1.65 1.65 0 0 0 9 19.4a1.65 1.65 0 0 0-1.82.33l-.06.06a2 2 0 0 1-2.83 0 2 2 0 0 1 0-2.83l.06-.06a1.65 1.65 0 0 0 .33-1.82 1.65 1.65 0 0 0-1.51-1H3a2 2 0 0 1-2-2 2 2 0 0 1 2-2h.09A1.65 1.65 0 0 0 4.6 9a1.65 1.65 0 0 0-.33-1.82l-.06-.06a2 2 0 0 1 0-2.83 2 2 0 0 1 2.83 0l.06.06a1.65 1.65 0 0 0 1.82.33H9a1.65 1.65 0 0 0 1-1.51V3a2 2 0 0 1 2-2 2 2 0 0 1 2 2v.09a1.65 1.65 0 0 0 1 1.51 1.65 1.65 0 0 0 1.82-.33l.06-.06a2 2 0 0 1 2.83 0 2 2 0 0 1 0 2.83l-.06.06a1.65 1.65 0 0 0-.33 1.82V9a1.65 1.65 0 0 0 1.51 1H21a2 2 0 0 1 2 2 2 2 0 0 1-2 2h-.09a1.65 1.65 0 0 0-1.51 1z"></path></svg>
     </div>
+
+    <div class="container">
+        <h1>식단 관리 프로그램</h1>
+
+        <div class="input-container">
+            <input type="text" id="food-input" placeholder="음식을 입력하세요 (예: 사과)">
+            <button id="add-food-btn">+</button>
+        </div>
+
+        <ul id="food-list">
+            <!-- 음식 목록이 여기에 추가됩니다 -->
+        </ul>
+
+        <button id="result-btn">결과 보기</button>
+
+        <div id="result-text">
+            <!-- 결과가 여기에 표시됩니다. -->
+        </div>
+    </div>
+
+    <!-- 설정 모달 -->
+    <div id="settings-modal" class="modal">
+        <div class="modal-content">
+            <span class="close-btn">&times;</span>
+            <h2>기본 정보 입력</h2>
+            <form id="user-info-form">
+                <label for="height">키(cm):</label>
+                <input type="number" id="height" required>
+                <label for="weight">몸무게(kg):</label>
+                <input type="number" id="weight" required>
+                <label for="age">나이:</label>
+                <input type="number" id="age" required>
+                <label for="gender">성별:</label>
+                <select id="gender" required>
+                    <option value="male">남성</option>
+                    <option value="female">여성</option>
+                </select>
+                <button type="submit">저장</button>
+            </form>
+        </div>
+    </div>
+
     <script src="main.js"></script>
 </body>
 </html>
